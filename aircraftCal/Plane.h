@@ -35,6 +35,7 @@ public:
     int getBombAtk();
     int getPriority();
     friend istream &operator>>(istream &is,Plane &item);
+    friend ostream &operator<<(ostream &os,Plane &item);
 private:
     string name;
     int category;

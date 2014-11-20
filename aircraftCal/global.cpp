@@ -2,6 +2,7 @@
 #include <map>
 #include "Carrier.h"
 #include "Plane.h"
+#include "calculator.h"
 
 int planes_tot;
 vector<Plane>planes;
@@ -13,3 +14,6 @@ map<string,int>carriers_m;
 
 map<string,int>plane_cate_m;
 map<string,int>carrier_cate_m;
+
+vector<Grid>gridVec;
+vector<Plane>planeVec;

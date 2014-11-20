@@ -34,6 +34,7 @@ public:
     int getGridSize(int order);
     int getAtk();
     friend istream &operator>>(istream &is,Carrier &item);
+    friend ostream &operator<<(ostream &os,Carrier &item);
 private:
     string name;
     int category;
