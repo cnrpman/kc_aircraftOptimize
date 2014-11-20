@@ -5,9 +5,11 @@
 #include <sstream>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 #include "Plane.h"
 #include "Carrier.h"
+#include "math.h"
 
 class Grid{
 public:
@@ -18,6 +20,8 @@ public:
         carrierAtk=_atk;
     }
     friend ostream &operator<<(ostream &os,Grid &item);
+    friend bool cal_cmp_grid(const Grid &a,const Grid &b);
+    friend bool cal_run();
 private:
     int carrierPos;
     int gridPos;
@@ -39,6 +43,9 @@ extern map<string,int>carrier_cate_m;
 extern vector<Grid>gridVec;
 extern vector<Plane>planeVec;
 
+extern int airDomin;
+
 void cal_dataReady(string msg);
+bool cal_run();
 
 #endif // CALCULATOR_H

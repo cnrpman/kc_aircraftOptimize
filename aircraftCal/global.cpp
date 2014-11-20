@@ -17,3 +17,5 @@ map<string,int>carrier_cate_m;
 
 vector<Grid>gridVec;
 vector<Plane>planeVec;
+
+int airDomin;
