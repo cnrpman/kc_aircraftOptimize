@@ -18,7 +18,5 @@ void core_initialization(){
 string &core_query(string &msg){
     cal_dataReady(msg);
     cal_run();
-//    return cal_getRes();
-    string &fuck=*new string("ok");
-    return fuck;
+    return cal_get_res();
 }

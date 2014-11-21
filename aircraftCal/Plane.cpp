@@ -48,7 +48,7 @@ istream &operator>>(istream &is,Plane &item){
 
 ostream &operator<<(ostream &os,Plane &item){
     string tmpcate;
+    tmpcate=PLANE_CATE_convert(item.category);
     os<<item.name<<" "<<tmpcate<<" "<<item.airDominance<<" "<<item.torpedoAtk<<" "<<item.bombAtk<<" "<<item.priority;
-    item.category=PLANE_CATE_convert(tmpcate);
     return os;
 }
