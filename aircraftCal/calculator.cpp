@@ -22,10 +22,11 @@ void cal_dataReady(string msg){//从query载入需要数据
         int tmpCarrierGridNum=carriers[tmpCarrierID].getGridNum();
         int bit=1;
         //insert grid
-        for(int j=0;j<tmpCarrierGridNum;j++)
+        for(int j=0;j<tmpCarrierGridNum;j++){
             if(tmpAvailBit&bit)//bit arithmatic judge if the grid available
                 gridVec.push_back(Grid(i,j,carriers[tmpCarrierID].getGridSize(j),carriers[tmpCarrierID].getAtk()));
             bit<<=1;
+        }
     }
 //    for(int i=0;i<gridVec.size();i++)
 //        cout<<gridVec[i]<<endl;
@@ -84,7 +85,7 @@ double calDomi(int gridS){
     int pi=0;
     for(int i=0;i<gridS;i++)
         if(fsign[i]==1){
-            res+=formulaFighter(gridVec[i].gridSize,planeVec[pi].getAirDominance());
+            res+=formulaFighter(gridVec[i].gridSize,planeVecF[pi].getAirDominance());
             pi++;
         }
     return res;
@@ -174,32 +175,34 @@ bool cal_run(){//if available result
     sort(gridVec.begin(),gridVec.end(),cal_cmp_grid);
     sort(planeVec.begin(),planeVec.end(),cal_cmp_plane);
 
-    int gsz=gridVec.size(),fn=0,nn=0,psz=planeVec.size();
+    int gsz=gridVec.size(),psz=planeVec.size();
     for(int i=0;i<gsz;i++){//get fighter need
         if(curAir>=airDomin||i>psz)break;
-        if(planeVec[i].getCategoryID()==PLANE_FIGHTER){
+        if(planeVec[i].getAirDominance()!=0){//must need
+            planeVec[i].category=PLANE_FIGHTER;
             curAir+=formulaFighter(gridVec[i].gridSize,planeVec[i].getAirDominance());
-            fn++;
+            planeVecF.push_back(planeVec[i]);
         }
     }
-    for(int i=0;i<psz;i++)//get other have
-        if(planeVec[i].getCategoryID()!=PLANE_FIGHTER)
-            nn++;
+    //TODO:TO VEC A & VEC F
+
 
     if(curAir<airDomin){
         cout<<"制空无法满足"<<endl;
         return false;
     }
-    cout<<fn<<" "<<nn<<endl;
+
+    for(int i=0;i<psz;i++)//get other have
+        if(planeVec[i].getCategoryID()==PLANE_BOMBER||planeVec[i].getCategoryID()==PLANE_TORPEDO_ATTACKER)
+            planeVecA.push_back(planeVec[i]);
 
     //search data prepare
-    planeVecA=planeVec;
     sort(planeVecA.begin(),planeVecA.end(),cal_cmp_plane_damage);
     memset(fsign,0,sizeof(fsign));
     memset(asign,0,sizeof(asign));
     ResA=0;
     //search
-    baoliSearch(0,fn,nn,gsz);
+    baoliSearch(0,planeVecF.size(),planeVecA.size(),gsz);
     cout<<"AD: "<<thatair<<" Atk: "<<ResA<<" "<<answer<<endl;
 
     return true;
@@ -217,11 +220,11 @@ string &cal_get_res(){
         Grid curg=gridVec[i];
 //        cout<<curg.carrierPos<<" "<<curg.gridPos<<endl;
         if(answer[i]=='1'){
-            answer_c[curg.carrierPos][curg.gridPos]=planeVec[f].getName();
+            answer_c[curg.carrierPos][curg.gridPos]=planeVecF[f].getName();
             f++;
         }
         else if(answer[i]=='2'){
-            answer_c[curg.carrierPos][curg.gridPos]=planeVecA[f].getName();
+            answer_c[curg.carrierPos][curg.gridPos]=planeVecA[a].getName();
             a++;
         }
     }

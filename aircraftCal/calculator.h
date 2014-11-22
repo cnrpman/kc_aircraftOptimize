@@ -47,6 +47,7 @@ extern map<string,int>carrier_cate_m;
 extern vector<Grid>gridVec;
 extern vector<Plane>planeVec;
 extern vector<Plane>planeVecA;
+extern vector<Plane>planeVecF;
 
 extern int airDomin;
 

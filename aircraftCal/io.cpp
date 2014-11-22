@@ -17,8 +17,8 @@ void read_planes(int &planes_tot,vector<Plane> &planes,map<string,int> &planes_m
     }
     in.close();
 
-//    for(int i=0;i<planes.size();i++)
-//        cout<<planes[i].getName()<<" "<<planes[i].getCategoryName()<<endl;
+    for(int i=0;i<planes.size();i++)
+        cout<<planes[i].getName()<<" "<<planes[i].getCategoryName()<<endl;
 }
 
 void read_carriers(int &carriers_tot,vector<Carrier> &carriers,map<string,int> &carriers_m){
@@ -36,6 +36,6 @@ void read_carriers(int &carriers_tot,vector<Carrier> &carriers,map<string,int> &
     }
     in.close();
 
-//    for(int i=0;i<carriers.size();i++)
-//        cout<<carriers[i].getName()<<" "<<carriers[i].getCategoryName()<<endl;
+    for(int i=0;i<carriers.size();i++)
+        cout<<carriers[i].getName()<<" "<<carriers[i].getCategoryName()<<endl;
 }

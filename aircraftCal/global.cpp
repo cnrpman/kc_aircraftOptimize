@@ -19,4 +19,5 @@ map<string,int>carrier_cate_m;
 vector<Grid>gridVec;//载机格
 vector<Plane>planeVec;//飞机
 vector<Plane>planeVecA;//attacker/bomber
+vector<Plane>planeVecF;//fighter
 int airDomin;//制空
