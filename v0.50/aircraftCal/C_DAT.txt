@@ -1,0 +1,125 @@
+AkagiKai
+CV 4 20 20 32 10 49
+
+KagaKai
+CV 4 20 20 46 12 49
+
+SoryuKaini
+CV 4 18 35 20 6 57
+
+HiryuKaini
+CV 4 18 36 22 3 64
+
+ShoukakuKai
+CV 4 24 24 24 12 39
+
+ZuikakuKai
+CV 4 24 24 24 12 39
+
+TaihoKai
+CV 4 30 24 24 8 59
+
+UnryuKai
+CV 4 18 21 27 3 48
+
+AmagiKai
+CV 4 18 21 27 3 45
+
+HiyoKai
+CVL 4 18 18 18 12 29
+
+JyunyoKaini
+CVL 4 24 18 20 4 40
+
+ChitoseKaini
+CVL 4 24 16 11 8 34
+
+ChiyodaKaini
+CVL 4 24 16 11 8 34
+
+RyujoKaini
+CVL 4 18 28 6 3 40
+
+HoshoKai
+CVL 3 14 16 12 0 29
+
+RyuhoKai
+CVL 4 21 9 9 6 32
+
+ShohoKai
+CVL 4 18 12 12 6 29
+
+ZuihoKai
+CVL 4 18 12 12 6 29
+
+Akagi
+CV 4 18 18 27 10 39
+
+Kaga
+CV 4 18 18 45 12 39
+
+SoryuKai
+CV 4 18 27 18 10 39
+
+Soryu
+CV 4 12 27 18 7 29
+
+HiryuKai
+CV 4 18 27 18 10 39
+
+Hiryu
+CV 4 12 27 18 7 29
+
+Shoukaku
+CV 4 21 21 21 12 39
+
+Zuikaku
+CV 4 21 21 21 12 39
+
+Taiho
+CV 4 18 18 18 7 49
+
+Unryu
+CV 4 18 24 3 6 27
+
+Amagi
+CV 4 18 24 3 6 25
+
+Hiyo
+CVL 4 12 18 18 10 19
+
+JyunyoKai
+CVL 4 18 18 18 12 29
+
+Jyunyo
+CVL 4 12 18 18 10 19
+
+ChitoseKai
+CVL 4 24 16 8 8 34
+
+Chitose
+CVL 3 21 9 6 0 19
+
+ChiyodaKai
+CVL 4 24 16 8 8 34
+
+Chiyoda
+CVL 3 21 9 6 0 19
+
+RyujoKai
+CVL 4 9 24 5 5 29
+
+Ryujo
+CVL 3 9 24 5 0 19
+
+Hosho
+CVL 2 8 11 0 0 19
+
+Ryuho
+CVL 3 18 7 6 0 20
+
+Shoho
+CVL 3 18 9 3 0 19
+
+Zuiho
+CVL 3 18 9 3 0 19
