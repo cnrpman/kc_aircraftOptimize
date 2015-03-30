@@ -157,7 +157,7 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
         int sz=assignSz(tAssignN);
         for(int i=0;i<sz;i++){
             getCurAssign(tAssignN, i);
-            int newAtk = assignCalAtk(tAssignN) + op_coef * calOPAtk(gridSz);
+            float newAtk = assignCalAtk(tAssignN) + op_coef * calOPAtk(gridSz);
             if(newAtk > resAtk){
                 int newAS = calAS(gridSz) + calASofBomber(gridSz);
                 if(newAS >= tarAirSupremacy){
