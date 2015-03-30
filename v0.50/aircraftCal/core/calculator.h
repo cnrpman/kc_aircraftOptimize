@@ -31,7 +31,8 @@ extern vector<Grid>gridVec;
 extern vector<Plane>planeVec,planeVecA,ResPlaneVecA,planeVecF;
 extern map<string,int>planes_m,plane_cate_m,carrier_cate_m,carriers_m;
 
-extern int tarAirSupremacy,shipAtk[4],carrierNum,usedGrid[4],availGrid[4],belonging[16];;
+extern int tarAirSupremacy,armor;
+extern int shipAtk[4],carrierNum,usedGrid[4],availGrid[4],belonging[16];;
 extern BelongStructure dpRes[5][5][5][5];
 extern float op_coef,accu_coef;
 

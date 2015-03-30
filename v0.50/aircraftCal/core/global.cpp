@@ -19,7 +19,7 @@ map<string,int>carrier_cate_m;
 vector<Grid>gridVec;//ÔØ»ú¸ñ
 vector<Carrier>theCarrier;
 vector<Plane>planeVec,planeVecA,ResPlaneVecA,planeVecF;
-int tarAirSupremacy,shipAtk[4],shipAccu[4],carrierNum;
+int tarAirSupremacy,armor,shipAtk[4],shipAccu[4],carrierNum;
 BelongStructure dpRes[5][5][5][5];
 int usedGrid[4],availGrid[4];
 float op_coef,accu_coef;

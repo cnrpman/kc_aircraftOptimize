@@ -17,7 +17,7 @@ inline bool checkIfFighterOnly(int gridSize,int LAS, int IFO){
 
 void cal_dataReady(stringstream &st){//从query载入需要数据
     int leastAttackerSz;
-    st>>tarAirSupremacy>>op_coef>>accu_coef>>leastAttackerSz;
+    st>>tarAirSupremacy>>op_coef>>accu_coef>>leastAttackerSz>>armor;
     //read carrier
     st>>carrierNum;
     string tmpName;
@@ -248,7 +248,10 @@ bool cal_run(){//if available result
         curBomberNum=min(gridSz-curFighterNum,(int)planeVecA.size());
         curBomberNum=min(curBomberNum,attackerAbleGridNum);
         flushFlag=1;//if copy resVecA
-        if(curBomberNum>CBN_LIMIT)cout<<"Too much bomber, curBomberNum: "<<curBomberNum<<endl;
+        if(curBomberNum>CBN_LIMIT){
+            cout<<"Too much bomber, curBomberNum: "<<curBomberNum<<endl;
+            return false;
+        }
 
         sort(planeVecA.begin(),planeVecA.begin()+curBomberNum,cal_cmp_plane_damageOP);
 

@@ -19,6 +19,7 @@ void core_initialization(){
 
 stringstream &core_query(stringstream &st){
     cal_dataReady(st);
-    cal_run();
-    return cal_get_res();
+    if(cal_run())
+        return cal_get_res();
+    else return *(new stringstream());
 }

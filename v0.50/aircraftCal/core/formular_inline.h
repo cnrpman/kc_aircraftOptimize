@@ -20,7 +20,7 @@ inline int damageRegular(int atk){
 }
 
 inline int armorSimu(int damage){
-    damage-=ARMOR;
+    damage-=armor;
     return damage>0?damage:0;
 }
 
