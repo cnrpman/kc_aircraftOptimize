@@ -39,6 +39,7 @@
 		<Unit filename="core/Plane.h" />
 		<Unit filename="core/atkdp.cpp" />
 		<Unit filename="core/atkdp.h" />
+		<Unit filename="core/belongingStructure.cpp" />
 		<Unit filename="core/belongingStructure.h" />
 		<Unit filename="core/calculator.cpp" />
 		<Unit filename="core/calculator.h" />

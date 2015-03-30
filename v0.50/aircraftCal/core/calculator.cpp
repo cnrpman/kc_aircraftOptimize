@@ -123,9 +123,9 @@ inline void getAssignN(int tAssignN[],int gridS){
         }
 }
 
-inline void getCurAssign(int tAssignN[],int k){//shiprem0~3,the kth belongings
+inline void getCurAssign(vector<int *>::iterator iter){//shiprem0~3,the kth belongings
     for(int i=0;i<16;i++)
-        curAssign[i]=dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]].belongings[k][i];
+        curAssign[i]=(*iter)[i];
 }
 
 inline float assignCalAtk(int tAssignN[]){
@@ -154,9 +154,9 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
     if(curlv == gridSz || (remainF == 0 && remainA == 0)){//µÝ¹é³ö¿Ú
         int tAssignN[4] = {0, 0, 0, 0};
         getAssignN(tAssignN, gridSz);//sav avail grids num to ships
-        int sz=assignSz(tAssignN);
-        for(int i=0;i<sz;i++){
-            getCurAssign(tAssignN, i);
+        vector<int *> &tlist=dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]].belongings;
+        for(vector<int *>::iterator iter=tlist.begin(),end=tlist.end();iter!=end;++iter){
+            getCurAssign(iter);
             float newAtk = assignCalAtk(tAssignN) + op_coef * calOPAtk(gridSz);
             if(newAtk > resAtk){
                 int newAS = calAS(gridSz) + calASofBomber(gridSz);

@@ -9,6 +9,6 @@
 #define PRESET_AS_OF_BOMBER 13
 #define EPS 1e-2
 #define ACCUCOEF 0.02
-#define ARMOR 50
+#define NEARING_COEF 5
 
 #endif // PREDEF_H_INCLUDED

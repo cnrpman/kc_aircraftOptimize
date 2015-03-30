@@ -3,8 +3,8 @@
 int times=0;
 int belonging[16];
 
-void anothersearch(int bomberNum,int bomberID){
-    dpRes[usedGrid[0]][usedGrid[1]][usedGrid[2]][usedGrid[3]].pushNew(formularAllShipAtk(shipAtk),belonging);
+void anothersearch(int bomberNum,int bomberID,void(* func)(BelongStructure *,int ,int *)){
+    func(&dpRes[usedGrid[0]][usedGrid[1]][usedGrid[2]][usedGrid[3]],formularAllShipAtk(shipAtk),belonging);
     if(bomberNum==0){
 //        cout<<usedGrid[0]<<" "<<usedGrid[1]<<" "<<usedGrid[2]<<" "<<usedGrid[3]<<endl;
         return;
@@ -18,7 +18,7 @@ void anothersearch(int bomberNum,int bomberID){
             shipAccu[i]+=taccu;
             usedGrid[i]++;
             belonging[bomberID]=i;
-            anothersearch(bomberNum-1,bomberID+1);
+            anothersearch(bomberNum-1,bomberID+1,func);
             usedGrid[i]--;
             shipAccu[i]-=taccu;
             shipAtk[i]-=tdamage;
@@ -31,5 +31,6 @@ void atkdp(int bomberNum){
     memset(shipAtk,0,sizeof(shipAtk));
     memset(shipAccu,0,sizeof(shipAccu));
     memset(usedGrid,0,sizeof(usedGrid));
-    anothersearch(bomberNum,0);
+    anothersearch(bomberNum,0,checkNew);
+    anothersearch(bomberNum,0,pushNew);
 }
