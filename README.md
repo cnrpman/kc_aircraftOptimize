@@ -7,6 +7,6 @@ v0.50 当前运行的版本，稳定版(2015.3)
 查询格式:
 制空值 开幕系数 命中系数 最小限制 空母数 (空母 装备掩码 是否罚站){空母数} 飞机数 (飞机 数量){飞机数}
 
-core/predef.h下的define:
-DEBUG -- 将输入从query.txt读入查询而不是shell
-WINDOWS -- 是否使用windows的库
+core/predef.h下的define:  
+DEBUG -- 将输入从query.txt读入查询而不是shell  
+WINDOWS -- 是否使用windows的库  
