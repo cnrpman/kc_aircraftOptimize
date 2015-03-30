@@ -19,7 +19,7 @@ inline int damageRegular(int atk){
     return atk;
 }
 
-inline int armorSimu(int damage){
+inline float armorSimu(float damage){
     damage-=armor;
     return damage>0?damage:0;
 }
@@ -48,7 +48,7 @@ inline float formularAllShipAtk(int shipAtk[]){
     for(int i=0;i<carrierNum;i++){
         if(shipAtk[i]==0)continue;
         int ss=((shipAtk[i]+theCarrier[i].atk*3)>>1)+55;
-        res+=((float)armorSimu(damageRegular(ss*0.8))+armorSimu(damageRegular(ss)))/2;
+        res+=(armorSimu(damageRegular(ss*0.8))+armorSimu(damageRegular(ss)))/2;
     }
     return res;
 }
