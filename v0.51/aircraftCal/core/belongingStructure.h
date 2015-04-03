@@ -8,12 +8,13 @@
 
 class BelongStructure{
 public:
-    BelongStructure():biggestAtk(0){}
-    int biggestAtk;
+    BelongStructure():biggestAtk(0.0){}
+    float biggestAtk;
     std::vector <int *> belongings;
 };
 
-void checkNew(BelongStructure *bs,int atk,int *belonging);
-void pushNew(BelongStructure *bs,int atk,int *belonging);
+void checkNew(BelongStructure *bs,float atk,int *belonging);
+void pushNew(BelongStructure *bs,float atk,int *belonging);
+void clearBelonging(BelongStructure *bs);
 
 #endif // BELONGINGSTRUCTURE_H

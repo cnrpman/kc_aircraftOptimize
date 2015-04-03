@@ -15,6 +15,8 @@ map<string,int>carriers_m;//船名映射
 map<string,int>plane_cate_m;//种类名映射
 map<string,int>carrier_cate_m;
 
+float loglist[LOGLIST_LEN];//表存sqrt，优化
+
 //读入查询
 vector<Grid>gridVec;//载机格
 vector<Carrier>theCarrier;

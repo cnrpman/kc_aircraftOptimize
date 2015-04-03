@@ -19,7 +19,7 @@ inline int damageRegular(int atk){
     return atk;
 }
 
-inline float armorSimu(float damage){
+inline int armorSimu(int damage){
     damage-=armor;
     return damage>0?damage:0;
 }
@@ -39,7 +39,7 @@ inline bool cal_cmp_plane_damage(const Plane &a,const Plane &b){
     return sig(formulaSortDamage(a)-formulaSortDamage(b))?a.accuracy>b.accuracy:formulaSortDamage(a)>formulaSortDamage(b);
 }
 
-inline float formulaDamage(const Plane &item){//yue fen
+inline int formulaDamage(const Plane &item){//yue fen
     return (item.bombAtk<<2)+item.torpedoAtk*3;
 }
 
@@ -48,7 +48,7 @@ inline float formularAllShipAtk(int shipAtk[]){
     for(int i=0;i<carrierNum;i++){
         if(shipAtk[i]==0)continue;
         int ss=((shipAtk[i]+theCarrier[i].atk*3)>>1)+55;
-        res+=(armorSimu(damageRegular(ss*0.8))+armorSimu(damageRegular(ss)))/2;
+        res+=(armorSimu(damageRegular(ss*0.8))+armorSimu(damageRegular(ss)))*loglist[shipAccu[i]];;
     }
     return res;
 }

@@ -34,9 +34,10 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
             if(tmpAvailBit&bit){//bit arithmatic judge if the grid available
                 int &tmpGridSize=carriers[tmpCarrierID].gridSize[j];
                 gridVec.push_back(Grid(i,j,tmpGridSize,carriers[tmpCarrierID].atk,checkIfFighterOnly(tmpGridSize,leastAttackerSz,ifFighterOnly)));
-                availGrid[i]++;
-                if(!gridVec.back().isFighterOnly)
+                if(!gridVec.back().isFighterOnly){
+                    availGrid[i]++;
                     attackerAbleGridNum++;
+                }
             }
             bit<<=1;
         }
@@ -53,6 +54,8 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
         for(int i=0;i<tmpNum;i++)
             planeVec.push_back(planes[tmpPlaneID]);
     }
+
+    loglist_init();
 }
 
 
@@ -252,13 +255,14 @@ bool cal_run(){//if available result
         sort(planeVecA.begin(),planeVecA.end(),cal_cmp_plane_damage);
 
 //        for(int i=0;i<planeVecA.size();i++)
-//            cout<<planeVecA[i]<<" "<<formulaDamageOP(49,planeVecA[i])<<endl;
+//            cout<<planeVecA[i]<<" "<<formulaDamage(planeVecA[i])<<endl;
 
         curBomberNum=min(gridSz-curFighterNum,(int)planeVecA.size());
         curBomberNum=min(curBomberNum,attackerAbleGridNum);
         flushFlag=1;//if copy resVecA
+//        cout<<curBomberNum<<endl;
         if(curBomberNum>CBN_LIMIT){
-            cout<<"Too much bomber, curBomberNum: "<<curBomberNum<<endl;
+            cout<<"Too much bomber, curBomberNum: "<<curBomberNum<<"  LIMIT: "<<CBN_LIMIT-1<<endl;
             return false;
         }
 
@@ -269,7 +273,7 @@ bool cal_run(){//if available result
 
         //dfs all bombers assignments
         atkdp(curBomberNum);
-
+//        cout<<"dp finished"<<endl;
         // 0-1 search
         memset(sign,0,sizeof(sign));
         baoliSearch(0,curFighterNum,curBomberNum,gridSz);

@@ -33,16 +33,21 @@ int main(int argc,char *argv[])
     #endif
     return 0;
 }
-
-//        main  临时界面
-//        |
-//        core
-//           |-predef
-//           |
-//           |-io          从P_DAT和C_DAT读入航母&舰载机设定
-//           |-calculator      计算逻辑
-//           |     |-formulation       用到的公式
-//           |     |-grid              航母格子类
-//           |-Carrier     航母类
-//           |-Plane       舰载机类
-//           |-gobal       运算功能的全局变量
+//
+//        ├─main  临时界面
+//        │
+//        └─core
+//           ├─predef        预设常量
+//           │
+//           ├─io            从P_DAT和C_DAT读入航母&舰载机设定
+//           │
+//           ├─calculator    主体计算逻辑
+//           ├─formulation   公式，内联的公式定义在formular_inline.h中
+//           ├─atkdp         对炮击伤害的搜索
+//           ├─belongingStructure  存放炮击伤害搜索结果的数据结构
+//           │
+//           ├─grid          航母格子类
+//           ├─Carrier
+//           ├─Plane
+//           │
+//           └─gobal
