@@ -12,6 +12,7 @@ void pushNew(BelongStructure *bs,float atk,int *belonging){
         for(int i=0;i<16;i++)
             ptr[i]=belonging[i];
         bs->belongings.push_back(ptr);
+        bs->as.push_back(atk);
     }
 
 void clearBelonging(BelongStructure *bs){
@@ -20,5 +21,6 @@ void clearBelonging(BelongStructure *bs){
         delete []ptr;
     });
     bs->belongings.clear();
+    bs->as.clear();
     bs->biggestAtk=0;
 }

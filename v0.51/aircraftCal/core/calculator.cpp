@@ -18,6 +18,9 @@ inline bool checkIfFighterOnly(int gridSize,int LAS, int IFO){
 void cal_dataReady(stringstream &st){//从query载入需要数据
     int leastAttackerSz;
     st>>tarAirSupremacy>>op_coef>>accu_coef>>leastAttackerSz>>armor;
+
+    armor_max=armor*(4.0/3);
+    armor_min=armor*(2.0/3);
     //read carrier
     st>>carrierNum;
     string tmpName;
@@ -135,10 +138,6 @@ inline void getCurAssign(vector<int *>::iterator iter){//shiprem0~3,the kth belo
         curAssign[i]=(*iter)[i];
 }
 
-inline float assignCalAtk(int tAssignN[]){
-    return dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]].biggestAtk;
-}
-
 inline int assignSz(int tAssignN[]){
     return dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]].belongings.size();
 }
@@ -161,10 +160,12 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
     if(curlv == gridSz || (remainF == 0 && remainA == 0)){//递归出口
         int tAssignN[4] = {0, 0, 0, 0};
         getAssignN(tAssignN, gridSz);//sav avail grids num to ships
-        vector<int *> &tlist=dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]].belongings;
+        BelongStructure &curres=dpRes[tAssignN[0]][tAssignN[1]][tAssignN[2]][tAssignN[3]];
+        vector<int *> &tlist=curres.belongings;
+        int i=0;
         for(vector<int *>::iterator iter=tlist.begin(),end=tlist.end();iter!=end;++iter){
             getCurAssign(iter);
-            float newAtk = assignCalAtk(tAssignN) + op_coef * calOPAtk(gridSz);
+            float newAtk = curres.as[i++] + op_coef * calOPAtk(gridSz);
             if(newAtk > resAtk){
                 int newAS = calAS(gridSz) + calASofBomber(gridSz);
                 if(newAS >= tarAirSupremacy){
@@ -181,8 +182,8 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
                     }
                 }
             }
-            return;
         }
+        return;
     }
     if(remainF){//尝试放置战斗机，检测罚站
         sign[curlv]=1;

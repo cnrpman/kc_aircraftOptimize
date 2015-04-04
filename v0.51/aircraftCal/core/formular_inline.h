@@ -19,9 +19,10 @@ inline int damageRegular(int atk){
     return atk;
 }
 
-inline int armorSimu(int damage){
-    damage-=armor;
-    return damage>0?damage:0;
+inline float armorSimu(int damage){
+    if(damage>=armor_max)
+    return damage-armor;
+    else return damage>armor_min?(damage-armor_min)/2:0;
 }
 
 //=====

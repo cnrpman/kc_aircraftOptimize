@@ -25,6 +25,7 @@ int tarAirSupremacy,armor,shipAtk[4],shipAccu[4],carrierNum;
 BelongStructure dpRes[5][5][5][5];
 int usedGrid[4],availGrid[4];
 float op_coef,accu_coef;
+int armor_max,armor_min;
 
 #ifndef WINDOWS
 timeval starttime,endtime;

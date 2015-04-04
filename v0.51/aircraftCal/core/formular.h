@@ -12,6 +12,7 @@
 extern int armor,carrierNum,shipAccu[4];
 extern float op_coef,accu_coef;
 extern vector<Carrier>theCarrier;
+extern int armor_max,armor_min;
 
 int formulaDamage(const Plane &item);
 float formulaDamageOP(int gridSize,const Plane &item);

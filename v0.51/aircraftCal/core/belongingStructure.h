@@ -11,6 +11,7 @@ public:
     BelongStructure():biggestAtk(0.0){}
     float biggestAtk;
     std::vector <int *> belongings;
+    std::vector<float>as;
 };
 
 void checkNew(BelongStructure *bs,float atk,int *belonging);

@@ -3,7 +3,7 @@
 
 float formulaDamageOP(int gridSize,const Plane &item){
     if(item.category==PLANE_TORPEDO_ATTACKER){
-        int atk=item.torpedoAtk*sqrt(gridSize)+25;
+        float atk=item.torpedoAtk*sqrt(gridSize)+25;
         return ((float)armorSimu(atk*1.5)+armorSimu(atk*0.8))/2;
     }
     else if(item.category==PLANE_BOMBER)
