@@ -5,8 +5,8 @@ using namespace std;
 //interior vars
 int attackerAbleGridNum;
 int sign[32],resSign[32];
-int curBomberNum,curFighterNum,curAssign[16],curAssignGrid[16];
-int resAS=0,resAssignGrid[16],resAssign[16],resOPAtk=0,resBomberNum;
+int curBomberNum,curFighterNum,curAssign[10],curAssignGrid[10];
+int resAS=0,resAssignGrid[10],resAssign[10],resOPAtk=0,resBomberNum;
 float resAtk=-1.0;
 bool flushFlag;
 
@@ -99,7 +99,7 @@ inline int calASpredict(int gridS){
 }
 
 inline float calOPAtk(int gridS){
-    int pickuped[16];
+    int pickuped[10];
     memset(pickuped,0,sizeof(pickuped));
     float res=0;
 
@@ -134,7 +134,7 @@ inline void getAssignN(int tAssignN[],int gridS){
 }
 
 inline void getCurAssign(vector<int *>::iterator iter){//shiprem0~3,the kth belongings
-    for(int i=0;i<16;i++)
+    for(int i=0;i<10;i++)
         curAssign[i]=(*iter)[i];
 }
 
@@ -150,7 +150,7 @@ inline void copySign2Res(int answer[],int gridS){
 }
 
 inline void copyCurAssign2Res(int resAssign[],int resAssignGrid[]){
-    for(int i=0;i<16;i++){
+    for(int i=0;i<10;i++){
         resAssign[i]=curAssign[i];
         resAssignGrid[i]=curAssignGrid[i];
     }
@@ -220,7 +220,7 @@ bool cal_run(){//if available result
 
     //choose fighters.
     int minFighterNum=-1,maxFighterNum=0;
-    float maxAirSupremacy=0.0;//AirSupermacy Val
+    float maxAirSupremacy=PRESET_AS_OF_BOMBER;//AirSupermacy Val
     sort(planeVec.begin(),planeVec.end(),cal_cmp_plane_AS);
 
     if(tarAirSupremacy==0)minFighterNum=0;
@@ -230,7 +230,7 @@ bool cal_run(){//if available result
             maxAirSupremacy+=formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
             planeVecF.push_back(planeVec[i]);
         }
-        if(maxAirSupremacy>tarAirSupremacy&&minFighterNum==-1){
+        if(maxAirSupremacy>=tarAirSupremacy&&minFighterNum==-1){
                 minFighterNum=i+1;
         }
     }
@@ -238,11 +238,11 @@ bool cal_run(){//if available result
         cout<<"FighterPower unreachable.Currently reachable FighterPower: "<<maxAirSupremacy<<endl;
         return false;
     }
-    maxFighterNum=min(maxFighterNum,minFighterNum+16);
+    maxFighterNum=min(maxFighterNum,minFighterNum+10);
     curFighterNum=minFighterNum;
 
     //for all possibility
-    for(curFighterNum=(minFighterNum-1>0?minFighterNum-1:0);curFighterNum<=maxFighterNum;curFighterNum++){
+    for(curFighterNum=minFighterNum;curFighterNum<=maxFighterNum;curFighterNum++){
         for(int i=0;i<curFighterNum;i++)
             planeVec[i].category=PLANE_FIGHTER; //set used AS plane as fighter.
 
@@ -255,9 +255,6 @@ bool cal_run(){//if available result
         }
         sort(planeVecA.begin(),planeVecA.end(),cal_cmp_plane_damage);
 
-//        for(int i=0;i<planeVecA.size();i++)
-//            cout<<planeVecA[i]<<" "<<formulaDamage(planeVecA[i])<<endl;
-
         curBomberNum=min(gridSz-curFighterNum,(int)planeVecA.size());
         curBomberNum=min(curBomberNum,attackerAbleGridNum);
         flushFlag=1;//if copy resVecA
@@ -269,7 +266,11 @@ bool cal_run(){//if available result
 
 //        cout<<curBomberNum<<endl;
         sort(planeVecA.begin(),planeVecA.begin()+curBomberNum,cal_cmp_plane_damageOP);
-
+//
+//                for(int i=0;i<planeVecA.size();i++)
+//            cout<<planeVecA[i]<<" "<<formulaDamageOP(49,planeVecA[i])<<endl;
+//
+//        cout<<"----------"<<endl;
 
 
         //dfs all bombers assignments

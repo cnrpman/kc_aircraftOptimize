@@ -4,7 +4,7 @@
 #include "formular.h"
 
 inline float formulaSortDamage(const Plane &item){
-    return formulaDamage(item)+op_coef*formulaDamageOP(20,item);
+    return formulaDamage(item)+op_coef*formulaDamageOP(24,item);
 }
 
 inline bool sig(float a){
@@ -55,7 +55,7 @@ inline float formularAllShipAtk(int shipAtk[]){
 }
 
 inline bool cal_cmp_plane_damageOP(const Plane &a,const Plane &b){
-    return sig(formulaDamageOP(49,a)-formulaDamageOP(49,b))?a.accuracy>b.accuracy:formulaDamageOP(1,a)>formulaDamageOP(1,b);
+    return sig(formulaDamageOP(49,a)-formulaDamageOP(49,b))?a.accuracy>b.accuracy:formulaDamageOP(49,a)>formulaDamageOP(49,b);
 }
 
 inline int formulaFighter(int gridSize,int AirSupremacy){

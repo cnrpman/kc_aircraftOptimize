@@ -5,10 +5,10 @@
 #define DEBUG
 //#define DEBUG2
 
-#define CBN_LIMIT 11
+#define CBN_LIMIT 10
 #define PRESET_AS_OF_BOMBER 26
 #define EPS 1e-2
-#define NEARING_COEF 50
+#define NEARING_COEF 10
 #define LOGLIST_LEN 1000
 
 #endif // PREDEF_H_INCLUDED
