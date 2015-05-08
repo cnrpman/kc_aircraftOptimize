@@ -219,22 +219,29 @@ bool cal_run(){//if available result
 
     //choose fighters.
     int minFighterNum=-1,maxFighterNum=0;
-    float maxAirSupremacy=PRESET_AS_OF_BOMBER;//AirSupermacy Val
+
     sort(planeVec.begin(),planeVec.end(),cal_cmp_plane_AS);
 
+    //cal min
+    float tAS=PRESET_AS_OF_BOMBER;//AirSupermacy Val
     if(tarAirSupremacy==0)minFighterNum=0;
+    for(int i=0;i<gridSz&&i<planeSz;i++){
+        if(tAS>=tarAirSupremacy&&minFighterNum==-1){
+            minFighterNum=i+1;
+        }
+    }
+    //cal max
+    tAS=0;
     for(int i=0;i<gridSz&&i<planeSz;i++){
         if(planeVec[i].airSupremacy!=0){
             maxFighterNum++;
-            maxAirSupremacy+=formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
+            tAS+=formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
             planeVecF.push_back(planeVec[i]);
         }
-        if(maxAirSupremacy>=tarAirSupremacy&&minFighterNum==-1){
-                minFighterNum=i+1;
-        }
+
     }
-    if(maxAirSupremacy<tarAirSupremacy){
-        cout<<"ERROR:FighterPower unreachable.Currently reachable FighterPower: "<<maxAirSupremacy<<endl;
+    if(tAS<tarAirSupremacy){
+        cout<<"ERROR:FighterPower unreachable.Currently reachable FighterPower: "<<tAS<<endl;
         return false;
     }
     maxFighterNum=min(maxFighterNum,minFighterNum+10);
