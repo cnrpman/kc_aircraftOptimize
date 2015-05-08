@@ -32,9 +32,10 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
         int tmpCarrierID=carriers_m[tmpName];
         int tmpCarrierGridNum=carriers[tmpCarrierID].gridNum;
         theCarrier.push_back(carriers[tmpCarrierID]);
-        int bit=1;
+        int bit=1<<(4-tmpCarrierGridNum);
         //insert grid
         availGrid[i]=0;
+
         for(int j=tmpCarrierGridNum-1;j>=0;j--){
             if(tmpAvailBit&bit){//bit arithmatic judge if the grid available
                 int &tmpGridSize=carriers[tmpCarrierID].gridSize[j];

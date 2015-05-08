@@ -25,6 +25,9 @@ CV 4 18 21 27 3 48
 AmagiKai
 CV 4 18 21 27 3 45
 
+KatsuragiKai
+CV 4 18 21 27 3 45
+
 HiyoKai
 CVL 4 18 18 18 12 29
 
@@ -85,6 +88,9 @@ CV 4 18 24 3 6 27
 Amagi
 CV 4 18 24 3 6 25
 
+Katsuragi
+CV 4 18 24 3 6 25
+
 Hiyo
 CVL 4 12 18 18 10 19
 
@@ -123,3 +129,6 @@ CVL 3 18 9 3 0 19
 
 Zuiho
 CVL 3 18 9 3 0 19
+
+AkitsuMaruKai
+CVL 3 8 8 8 0 33
