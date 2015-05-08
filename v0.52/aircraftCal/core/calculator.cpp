@@ -224,8 +224,9 @@ bool cal_run(){//if available result
 
     //cal min
     float tAS=PRESET_AS_OF_BOMBER;//AirSupermacy Val
-    if(tarAirSupremacy==0)minFighterNum=0;
+    if(tAS>=tarAirSupremacy)minFighterNum=0;
     for(int i=0;i<gridSz&&i<planeSz;i++){
+        tAS+=formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
         if(tAS>=tarAirSupremacy&&minFighterNum==-1){
             minFighterNum=i+1;
         }
@@ -245,7 +246,6 @@ bool cal_run(){//if available result
         return false;
     }
     maxFighterNum=min(maxFighterNum,minFighterNum+10);
-    curFighterNum=minFighterNum;
 
     //for all possibility
     for(curFighterNum=minFighterNum;curFighterNum<=maxFighterNum;curFighterNum++){
@@ -260,7 +260,6 @@ bool cal_run(){//if available result
                 planeVecA.push_back(tplane);
         }
         sort(planeVecA.begin(),planeVecA.end(),cal_cmp_plane_damage);
-
         curBomberNum=min(gridSz-curFighterNum,(int)planeVecA.size());
         curBomberNum=min(curBomberNum,attackerAbleGridNum);
         flushFlag=1;//if copy resVecA
