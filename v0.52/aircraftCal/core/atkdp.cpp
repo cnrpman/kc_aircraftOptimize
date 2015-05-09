@@ -10,12 +10,9 @@ void anothersearch(int bomberNum,int bomberID,void(* func)(BelongStructure *,flo
         return;
     }
 
-    int i=0;
-    if(bomberID>0&&planeVecA[bomberID].name==planeVecA[bomberID-1].name)//bag cutting
-        i=belonging[bomberID-1];
     Plane &tplane=planeVecA[bomberID];
     int tdamage=formulaDamage(tplane),taccu=tplane.accuracy;
-    for(;i<carrierNum;i++){
+    for(int i=0;i<carrierNum;i++){
         if(usedGrid[i]<availGrid[i]){
             shipAtk[i]+=tdamage;
             shipAccu[i]+=taccu;
