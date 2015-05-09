@@ -5,8 +5,8 @@ using namespace std;
 //interior vars
 int attackerAbleGridNum;
 int sign[32],resSign[32];
-int curBomberNum,curFighterNum,curAssign[10],curAssignGrid[10];
-int resAS=0,resAssignGrid[10],resAssign[10],resOPAtk=0,resBomberNum;
+int curBomberNum,curFighterNum,curAssign[16],curAssignGrid[16];
+int resAS=0,resAssignGrid[16],resAssign[16],resOPAtk=0,resBomberNum;
 float resAtk=-1.0;
 bool flushFlag;
 std::chrono::time_point<std::chrono::system_clock> logtime;
@@ -102,7 +102,7 @@ inline int calASpredict(int gridS){
 }
 
 inline float calOPAtk(int gridS){
-    int pickuped[10];
+    int pickuped[16];
     memset(pickuped,0,sizeof(pickuped));
     float res=0;
 
@@ -137,7 +137,7 @@ inline void getAssignN(int tAssignN[],int gridS){
 }
 
 inline void getCurAssign(vector<int *>::iterator iter){//shiprem0~3,the kth belongings
-    for(int i=0;i<10;i++)
+    for(int i=0;i<16;i++)
         curAssign[i]=(*iter)[i];
 }
 
@@ -153,7 +153,7 @@ inline void copySign2Res(int answer[],int gridS){
 }
 
 inline void copyCurAssign2Res(int resAssign[],int resAssignGrid[]){
-    for(int i=0;i<10;i++){
+    for(int i=0;i<16;i++){
         resAssign[i]=curAssign[i];
         resAssignGrid[i]=curAssignGrid[i];
     }
