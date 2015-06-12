@@ -3,6 +3,7 @@
 
 #include "predef.h"
 
+#include <cstdio>
 #include <cmath>
 #include <vector>
 #include "grid.h"
@@ -12,9 +13,11 @@
 extern int armor,carrierNum,shipAccu[4];
 extern float op_coef,accu_coef;
 extern vector<Carrier>theCarrier;
+extern int armor_max,armor_min;
 
-float formulaDamage(const Plane &item);
+int formulaDamage(const Plane &item);
 float formulaDamageOP(int gridSize,const Plane &item);
+std::string formula_damageOP_str(int gridSize,const Plane &item);
 float sortDamage(Plane &item);
 int formulaFighter(int gridSize,int AirSupremacy);
 float formularAllShipAtk(int shipAtk[]);

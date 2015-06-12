@@ -4,7 +4,7 @@
 #include "formular.h"
 
 inline float formulaSortDamage(const Plane &item){
-    return formulaDamage(item)+op_coef*formulaDamageOP(24,item);
+    return formulaDamage(item)/10 + op_coef*formulaDamageOP(24,item);
 }
 
 inline bool sig(float a){
@@ -41,15 +41,27 @@ inline bool cal_cmp_plane_damage(const Plane &a,const Plane &b){
 }
 
 inline int formulaDamage(const Plane &item){//yue fen
-    return (item.bombAtk<<2)+item.torpedoAtk*3;
+    return (int)(item.bombAtk*13) + item.torpedoAtk * 10;
+}
+
+inline float formula_shipAtk_cocurHeading(int rawDamage){
+    return damageRegular(rawDamage);
+}
+
+inline float formula_shipAtk_invertHeading(int rawDamage){
+    return damageRegular(rawDamage * 0.8);
+}
+
+inline int formula_shipAtk_rawDamage(int planesAtk, int cvAtk){
+    return (int)(((int)(planesAtk / 10) + cvAtk)*1.5)+55;
 }
 
 inline float formularAllShipAtk(int shipAtk[]){
     float res=0;
     for(int i=0;i<carrierNum;i++){
-        if(shipAtk[i]==0)continue;
-        int ss=((shipAtk[i]+theCarrier[i].atk*3)>>1)+55;
-        res+=(armorSimu(damageRegular(ss*0.8))+armorSimu(damageRegular(ss)))*loglist[shipAccu[i]];;
+        if(shipAtk[i] == 0) continue;//·£Õ¾
+        int rawDamage = formula_shipAtk_rawDamage(shipAtk[i], theCarrier[i].atk);
+        res += (armorSimu(formula_shipAtk_cocurHeading(rawDamage)) + armorSimu(formula_shipAtk_invertHeading(rawDamage))) * (1+accu_coef*sqrt(i)) / 2;
     }
     return res;
 }
@@ -59,7 +71,7 @@ inline bool cal_cmp_plane_damageOP(const Plane &a,const Plane &b){
 }
 
 inline int formulaFighter(int gridSize,int AirSupremacy){
-    return floor(sqrt(gridSize)*AirSupremacy);
+    return (int)(sqrt(gridSize)*AirSupremacy);
 }
 
 #endif // FORMULAR_INLINE_H

@@ -60,8 +60,6 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
         for(int i=0;i<tmpNum;i++)
             planeVec.push_back(planes[tmpPlaneID]);
     }
-
-    loglist_init();
 }
 
 
@@ -264,10 +262,10 @@ bool cal_run(){//if available result
         curBomberNum=min(curBomberNum,attackerAbleGridNum);
         flushFlag=1;//if copy resVecA
 //        cout<<curBomberNum<<endl;
-        if(curBomberNum>CBN_LIMIT){
-            cout<<"ERROR:Too much bomber, curBomberNum: "<<curBomberNum<<"  LIMIT: "<<CBN_LIMIT-1<<endl;
-            return false;
-        }
+//        if(curBomberNum>CBN_LIMIT){
+//            cout<<"ERROR:Too much bomber, curBomberNum: "<<curBomberNum<<"  LIMIT: "<<CBN_LIMIT-1<<endl;
+//            return false;
+//        }
 
 //        cout<<curBomberNum<<endl;
         sort(planeVecA.begin(),planeVecA.begin()+curBomberNum,cal_cmp_plane_damageOP);
@@ -284,7 +282,8 @@ bool cal_run(){//if available result
     return true;
 }
 
-string answer_c[6][4];
+string answer_c[6][4],answer_n[6][4];
+char tmp[200];
 
 stringstream &cal_get_res(){
     #ifdef DEBUG2
@@ -300,24 +299,47 @@ stringstream &cal_get_res(){
     cout<<curBomberNum<<endl;
     #endif
     for(int i=0;i<6;i++)
-        for(int j=0;j<4;j++)
+        for(int j=0;j<4;j++){
             answer_c[i][j]=" - ";
+            answer_n[i][j]=" - ";
+        }
     int f=0;
     for(int i=0;resSign[i]!='\0';i++){
         Grid &tGrid=gridVec[i];
         if(resSign[i]=='1'){
             answer_c[tGrid.carrierPos][tGrid.gridPos]=planeVecF[f].name;
+            answer_n[tGrid.carrierPos][tGrid.gridPos]=" - ";
             f++;
         }
     }
-    for(int i=0;i<resBomberNum;i++)
+
+    int shipHit[6];
+    float shipAtk[6];
+    memset(shipAtk,0,sizeof(shipAtk));
+    memset(shipHit,0,sizeof(shipHit));
+    for(int i=0;i<resBomberNum;i++){
         answer_c[resAssign[i]][resAssignGrid[i]]=ResPlaneVecA[i].name;
+        answer_n[resAssign[i]][resAssignGrid[i]] = formula_damageOP_str(theCarrier[resAssign[i]].gridSize[resAssignGrid[i]],ResPlaneVecA[i]);
+
+        shipAtk[resAssign[i]] += formulaDamage(ResPlaneVecA[i]);
+        shipHit[resAssign[i]] += ResPlaneVecA[i].accuracy;
+    }
 
     stringstream &stmp=*(new stringstream());
     for(int i=0;i<6;i++){
         for(int j=0;j<4;j++)
             stmp<<answer_c[i][j]<<"|";
         stmp<<endl;
+    }
+    for(int i=0;i<6;i++){
+        for(int j=0;j<4;j++)
+            stmp<<answer_n[i][j]<<"|";
+        if(shipAtk[i] == 0){
+            stmp<<" - | - |"<<endl;
+            continue;
+        }
+        int rd = formula_shipAtk_rawDamage(shipAtk[i], theCarrier[i].atk);
+        stmp<<formula_shipAtk_cocurHeading(rd)<<'|'<<formula_shipAtk_invertHeading(rd)<<'|'<<endl;
     }
 
     cout<<"AS: "<<resAS<<" Atk: "<<resAtk<<" time: "<<(restime.count()/1000.0)<<" ms"<<endl;
