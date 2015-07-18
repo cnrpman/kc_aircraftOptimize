@@ -11,6 +11,6 @@ script:
 
 deploy:
   provider: releases
-  api_key: 49f9595318d057fcb791271645ebb70531969e32
+  api_key: df6dc1fa4145a4940f11bbd24243c050ccc3e63a
   file: bin/Release/aircraftcal
   skip_cleanup: true
