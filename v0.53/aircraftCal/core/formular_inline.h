@@ -61,7 +61,7 @@ inline float formularAllShipAtk(int shipAtk[]){
     for(int i=0;i<carrierNum;i++){
         if(shipAtk[i] == 0) continue;//·£Õ¾
         int rawDamage = formula_shipAtk_rawDamage(shipAtk[i], theCarrier[i].atk);
-        res += (armorSimu(formula_shipAtk_cocurHeading(rawDamage)) + armorSimu(formula_shipAtk_invertHeading(rawDamage))) * (1+accu_coef*sqrt(i)) / 2;
+        res += (armorSimu(formula_shipAtk_cocurHeading(rawDamage))*0.6 + armorSimu(formula_shipAtk_invertHeading(rawDamage))*0.4) * (1+accu_coef*sqrt(i));
     }
     return res;
 }
