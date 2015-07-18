@@ -3,13 +3,13 @@
 #------------------------------------------------------------------------------#
 
 
-WORKDIR = %cd%
+WORKDIR = `pwd`
 
-CC = gcc.exe
-CXX = g++.exe
-AR = ar.exe
-LD = g++.exe
-WINDRES = windres.exe
+CC = gcc
+CXX = g++
+AR = ar
+LD = g++
+WINDRES = windres
 
 INC = 
 CFLAGS = -Wall -fexceptions
@@ -25,9 +25,9 @@ RCFLAGS_DEBUG = $(RCFLAGS)
 LIBDIR_DEBUG = $(LIBDIR)
 LIB_DEBUG = $(LIB)
 LDFLAGS_DEBUG = $(LDFLAGS)
-OBJDIR_DEBUG = obj\\Debug
+OBJDIR_DEBUG = obj/Debug
 DEP_DEBUG = 
-OUT_DEBUG = bin\\Debug\\aircraftcal.exe
+OUT_DEBUG = bin/Debug/aircraftcal
 
 INC_RELEASE = $(INC)
 CFLAGS_RELEASE = $(CFLAGS) -O2
@@ -36,22 +36,22 @@ RCFLAGS_RELEASE = $(RCFLAGS)
 LIBDIR_RELEASE = $(LIBDIR)
 LIB_RELEASE = $(LIB)
 LDFLAGS_RELEASE = $(LDFLAGS) -s
-OBJDIR_RELEASE = obj\\Release
+OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
-OUT_RELEASE = bin\\Release\\aircraftcal.exe
+OUT_RELEASE = bin/Release/aircraftcal
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)\\main.o $(OBJDIR_DEBUG)\\core\\io.o $(OBJDIR_DEBUG)\\core\\global.o $(OBJDIR_DEBUG)\\core\\formular.o $(OBJDIR_DEBUG)\\core\\core.o $(OBJDIR_DEBUG)\\core\\calculator.o $(OBJDIR_DEBUG)\\core\\belongingStructure.o $(OBJDIR_DEBUG)\\core\\atkdp.o $(OBJDIR_DEBUG)\\core\\Plane.o $(OBJDIR_DEBUG)\\core\\Carrier.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/main.o $(OBJDIR_DEBUG)/core/io.o $(OBJDIR_DEBUG)/core/global.o $(OBJDIR_DEBUG)/core/formular.o $(OBJDIR_DEBUG)/core/core.o $(OBJDIR_DEBUG)/core/calculator.o $(OBJDIR_DEBUG)/core/belongingStructure.o $(OBJDIR_DEBUG)/core/atkdp.o $(OBJDIR_DEBUG)/core/Plane.o $(OBJDIR_DEBUG)/core/Carrier.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)\\main.o $(OBJDIR_RELEASE)\\core\\io.o $(OBJDIR_RELEASE)\\core\\global.o $(OBJDIR_RELEASE)\\core\\formular.o $(OBJDIR_RELEASE)\\core\\core.o $(OBJDIR_RELEASE)\\core\\calculator.o $(OBJDIR_RELEASE)\\core\\belongingStructure.o $(OBJDIR_RELEASE)\\core\\atkdp.o $(OBJDIR_RELEASE)\\core\\Plane.o $(OBJDIR_RELEASE)\\core\\Carrier.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/main.o $(OBJDIR_RELEASE)/core/io.o $(OBJDIR_RELEASE)/core/global.o $(OBJDIR_RELEASE)/core/formular.o $(OBJDIR_RELEASE)/core/core.o $(OBJDIR_RELEASE)/core/calculator.o $(OBJDIR_RELEASE)/core/belongingStructure.o $(OBJDIR_RELEASE)/core/atkdp.o $(OBJDIR_RELEASE)/core/Plane.o $(OBJDIR_RELEASE)/core/Carrier.o
 
 all: debug release
 
 clean: clean_debug clean_release
 
 before_debug: 
-	cmd /c if not exist bin\\Debug md bin\\Debug
-	cmd /c if not exist $(OBJDIR_DEBUG) md $(OBJDIR_DEBUG)
-	cmd /c if not exist $(OBJDIR_DEBUG)\\core md $(OBJDIR_DEBUG)\\core
+	test -d bin/Debug || mkdir -p bin/Debug
+	test -d $(OBJDIR_DEBUG) || mkdir -p $(OBJDIR_DEBUG)
+	test -d $(OBJDIR_DEBUG)/core || mkdir -p $(OBJDIR_DEBUG)/core
 
 after_debug: 
 
@@ -60,46 +60,46 @@ debug: before_debug out_debug after_debug
 out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 	$(LD) $(LIBDIR_DEBUG) -o $(OUT_DEBUG) $(OBJ_DEBUG)  $(LDFLAGS_DEBUG) $(LIB_DEBUG)
 
-$(OBJDIR_DEBUG)\\main.o: main.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.cpp -o $(OBJDIR_DEBUG)\\main.o
+$(OBJDIR_DEBUG)/main.o: main.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.cpp -o $(OBJDIR_DEBUG)/main.o
 
-$(OBJDIR_DEBUG)\\core\\io.o: core\\io.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\io.cpp -o $(OBJDIR_DEBUG)\\core\\io.o
+$(OBJDIR_DEBUG)/core/io.o: core/io.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/io.cpp -o $(OBJDIR_DEBUG)/core/io.o
 
-$(OBJDIR_DEBUG)\\core\\global.o: core\\global.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\global.cpp -o $(OBJDIR_DEBUG)\\core\\global.o
+$(OBJDIR_DEBUG)/core/global.o: core/global.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/global.cpp -o $(OBJDIR_DEBUG)/core/global.o
 
-$(OBJDIR_DEBUG)\\core\\formular.o: core\\formular.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\formular.cpp -o $(OBJDIR_DEBUG)\\core\\formular.o
+$(OBJDIR_DEBUG)/core/formular.o: core/formular.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/formular.cpp -o $(OBJDIR_DEBUG)/core/formular.o
 
-$(OBJDIR_DEBUG)\\core\\core.o: core\\core.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\core.cpp -o $(OBJDIR_DEBUG)\\core\\core.o
+$(OBJDIR_DEBUG)/core/core.o: core/core.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/core.cpp -o $(OBJDIR_DEBUG)/core/core.o
 
-$(OBJDIR_DEBUG)\\core\\calculator.o: core\\calculator.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\calculator.cpp -o $(OBJDIR_DEBUG)\\core\\calculator.o
+$(OBJDIR_DEBUG)/core/calculator.o: core/calculator.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/calculator.cpp -o $(OBJDIR_DEBUG)/core/calculator.o
 
-$(OBJDIR_DEBUG)\\core\\belongingStructure.o: core\\belongingStructure.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\belongingStructure.cpp -o $(OBJDIR_DEBUG)\\core\\belongingStructure.o
+$(OBJDIR_DEBUG)/core/belongingStructure.o: core/belongingStructure.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/belongingStructure.cpp -o $(OBJDIR_DEBUG)/core/belongingStructure.o
 
-$(OBJDIR_DEBUG)\\core\\atkdp.o: core\\atkdp.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\atkdp.cpp -o $(OBJDIR_DEBUG)\\core\\atkdp.o
+$(OBJDIR_DEBUG)/core/atkdp.o: core/atkdp.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/atkdp.cpp -o $(OBJDIR_DEBUG)/core/atkdp.o
 
-$(OBJDIR_DEBUG)\\core\\Plane.o: core\\Plane.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\Plane.cpp -o $(OBJDIR_DEBUG)\\core\\Plane.o
+$(OBJDIR_DEBUG)/core/Plane.o: core/Plane.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/Plane.cpp -o $(OBJDIR_DEBUG)/core/Plane.o
 
-$(OBJDIR_DEBUG)\\core\\Carrier.o: core\\Carrier.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core\\Carrier.cpp -o $(OBJDIR_DEBUG)\\core\\Carrier.o
+$(OBJDIR_DEBUG)/core/Carrier.o: core/Carrier.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c core/Carrier.cpp -o $(OBJDIR_DEBUG)/core/Carrier.o
 
 clean_debug: 
-	cmd /c del /f $(OBJ_DEBUG) $(OUT_DEBUG)
-	cmd /c rd bin\\Debug
-	cmd /c rd $(OBJDIR_DEBUG)
-	cmd /c rd $(OBJDIR_DEBUG)\\core
+	rm -f $(OBJ_DEBUG) $(OUT_DEBUG)
+	rm -rf bin/Debug
+	rm -rf $(OBJDIR_DEBUG)
+	rm -rf $(OBJDIR_DEBUG)/core
 
 before_release: 
-	cmd /c if not exist bin\\Release md bin\\Release
-	cmd /c if not exist $(OBJDIR_RELEASE) md $(OBJDIR_RELEASE)
-	cmd /c if not exist $(OBJDIR_RELEASE)\\core md $(OBJDIR_RELEASE)\\core
+	test -d bin/Release || mkdir -p bin/Release
+	test -d $(OBJDIR_RELEASE) || mkdir -p $(OBJDIR_RELEASE)
+	test -d $(OBJDIR_RELEASE)/core || mkdir -p $(OBJDIR_RELEASE)/core
 
 after_release: 
 
@@ -108,41 +108,41 @@ release: before_release out_release after_release
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) $(LIB_RELEASE)
 
-$(OBJDIR_RELEASE)\\main.o: main.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)\\main.o
+$(OBJDIR_RELEASE)/main.o: main.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)/main.o
 
-$(OBJDIR_RELEASE)\\core\\io.o: core\\io.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\io.cpp -o $(OBJDIR_RELEASE)\\core\\io.o
+$(OBJDIR_RELEASE)/core/io.o: core/io.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/io.cpp -o $(OBJDIR_RELEASE)/core/io.o
 
-$(OBJDIR_RELEASE)\\core\\global.o: core\\global.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\global.cpp -o $(OBJDIR_RELEASE)\\core\\global.o
+$(OBJDIR_RELEASE)/core/global.o: core/global.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/global.cpp -o $(OBJDIR_RELEASE)/core/global.o
 
-$(OBJDIR_RELEASE)\\core\\formular.o: core\\formular.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\formular.cpp -o $(OBJDIR_RELEASE)\\core\\formular.o
+$(OBJDIR_RELEASE)/core/formular.o: core/formular.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/formular.cpp -o $(OBJDIR_RELEASE)/core/formular.o
 
-$(OBJDIR_RELEASE)\\core\\core.o: core\\core.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\core.cpp -o $(OBJDIR_RELEASE)\\core\\core.o
+$(OBJDIR_RELEASE)/core/core.o: core/core.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/core.cpp -o $(OBJDIR_RELEASE)/core/core.o
 
-$(OBJDIR_RELEASE)\\core\\calculator.o: core\\calculator.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\calculator.cpp -o $(OBJDIR_RELEASE)\\core\\calculator.o
+$(OBJDIR_RELEASE)/core/calculator.o: core/calculator.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/calculator.cpp -o $(OBJDIR_RELEASE)/core/calculator.o
 
-$(OBJDIR_RELEASE)\\core\\belongingStructure.o: core\\belongingStructure.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\belongingStructure.cpp -o $(OBJDIR_RELEASE)\\core\\belongingStructure.o
+$(OBJDIR_RELEASE)/core/belongingStructure.o: core/belongingStructure.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/belongingStructure.cpp -o $(OBJDIR_RELEASE)/core/belongingStructure.o
 
-$(OBJDIR_RELEASE)\\core\\atkdp.o: core\\atkdp.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\atkdp.cpp -o $(OBJDIR_RELEASE)\\core\\atkdp.o
+$(OBJDIR_RELEASE)/core/atkdp.o: core/atkdp.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/atkdp.cpp -o $(OBJDIR_RELEASE)/core/atkdp.o
 
-$(OBJDIR_RELEASE)\\core\\Plane.o: core\\Plane.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\Plane.cpp -o $(OBJDIR_RELEASE)\\core\\Plane.o
+$(OBJDIR_RELEASE)/core/Plane.o: core/Plane.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/Plane.cpp -o $(OBJDIR_RELEASE)/core/Plane.o
 
-$(OBJDIR_RELEASE)\\core\\Carrier.o: core\\Carrier.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core\\Carrier.cpp -o $(OBJDIR_RELEASE)\\core\\Carrier.o
+$(OBJDIR_RELEASE)/core/Carrier.o: core/Carrier.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c core/Carrier.cpp -o $(OBJDIR_RELEASE)/core/Carrier.o
 
 clean_release: 
-	cmd /c del /f $(OBJ_RELEASE) $(OUT_RELEASE)
-	cmd /c rd bin\\Release
-	cmd /c rd $(OBJDIR_RELEASE)
-	cmd /c rd $(OBJDIR_RELEASE)\\core
+	rm -f $(OBJ_RELEASE) $(OUT_RELEASE)
+	rm -rf bin/Release
+	rm -rf $(OBJDIR_RELEASE)
+	rm -rf $(OBJDIR_RELEASE)/core
 
 .PHONY: before_debug after_debug clean_debug before_release after_release clean_release
 
