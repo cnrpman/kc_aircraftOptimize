@@ -1,0 +1,10 @@
+language: cpp
+
+branches:
+  only:
+   - master
+
+compiler: g++
+
+script:
+  - make -f aircraftCal.cbp.mak
