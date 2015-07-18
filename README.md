@@ -1,16 +1,17 @@
 kc_aircraftOptimize
 ===================
+[![Build Status](https://travis-ci.org/cnrpman/kc_aircraftOptimize.svg?branch=master)](https://travis-ci.org/cnrpman/kc_aircraftOptimize)  
 这是一个根据空母和舰载机计算出满足指定制空值的火力优化配置的工具  
 v0.5x为目前使用的版本  
 v0.1为只考虑开幕伤害的旧版本(以下内容对该版本无效)  
 
-##Run
-可以使用code:blocks打开目录下的.cbp文件直接编译即可,需要打开c++11编译选项.  
-Windows/Linux均可.
+##Install
+可以使用code:blocks打开目录下的.cbp文件直接编译即可,需要打开c++11编译选项.(Windows/Linux均可)  
+或在目录下执行`make -f aircraftCal.cbp.mak`进行编译(Linux)  
 
 ##Usage
 Query Format:  
-制空值 开幕系数 命中系数 最小限制 敌方装甲 空母数 冗余系数 (空母 装备掩码 是否罚站)x空母数 飞机数 (飞机 数量)x飞机数  
+`制空值 开幕系数 命中系数 最小限制 敌方装甲 空母数 冗余系数 (空母 装备掩码 是否罚站)x空母数 飞机数 (飞机 数量)x飞机数`  
 
 具体查询Sample可见每次查询后返回的show query或目录下的query.txt
 
