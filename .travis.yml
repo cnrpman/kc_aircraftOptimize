@@ -8,3 +8,11 @@ compiler: g++
 
 script:
   - make -f aircraftCal.cbp.mak
+
+deploy:
+  provider: releases
+  api_key: 49f9595318d057fcb791271645ebb70531969e32
+  file: bin/Release/aircraftcal
+  skip_cleanup: true
+  on:
+    tags: true
