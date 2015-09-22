@@ -15,10 +15,10 @@ public:
         carrierAtk=_atk;
         isFighterOnly=_IFO;
     }
-    int carrierPos;
-    int gridPos;
-    int gridSize;
-    int carrierAtk;
-    int isFighterOnly;
+        carrierPos,
+        gridPos,
+        gridSize,
+        carrierAtk,
+        isFighterOnly;
 };
 #endif

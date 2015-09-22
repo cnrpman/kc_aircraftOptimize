@@ -45,6 +45,8 @@
 		<Unit filename="core/calculator.h" />
 		<Unit filename="core/core.cpp" />
 		<Unit filename="core/core.h" />
+		<Unit filename="core/enum_defs/enum_def.h" />
+		<Unit filename="core/enum_defs/enumer.h" />
 		<Unit filename="core/formular.cpp" />
 		<Unit filename="core/formular.h" />
 		<Unit filename="core/formular_inline.h" />

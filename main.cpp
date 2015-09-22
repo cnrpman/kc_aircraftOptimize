@@ -1,32 +1,35 @@
-#include "core/predef.h"
-
+#include <cstring>
+#include <exception>
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "core/core.h"
+#include "src/header/predef.h"
+#include "src/header/ACC.h"
 
-using namespace std;
+std::stringstream iss, oss;
 
-//int main(void)
 int main(int argc,char *argv[])
 {
-    core_initialization();
-    fstream in;
-    stringstream ss;
-
-    #ifdef DEBUG
-        string str;
-        in.open("query.txt",ios::in);
-        while(in.good()){
-            in>>str;
-            ss<<str<<" ";
+    if(argc <= 1){
+        std::cout<<"Usage: <query string>  | query"<<std::endl
+                 <<"       -d              | debug"<<std::endl;
+    }
+    else if(strcmp(argv[1],"-d") == 0){
+        std::ifstream fin("query.txt");
+        if(!fin.is_open()){
+            std::cerr << "Could not open 'query.txt'" << std::endl;
+            return -1;
         }
-    #else
-        for(int i=1;i<argc;i++)
-            ss<<argv[i]<<" ";
-    #endif
+        else
+            iss << fin.rdbuf();
+    }
+    else{
+        iss << argv[1];
+    }
 
-    cout<<core_query(ss).str();
+    ACC* acc = new ACC();
+    acc->query(iss,oss);
+    cout << oss.rdbuf();
 
     #ifdef WINDOWS
         system("pause");

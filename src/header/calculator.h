@@ -32,6 +32,7 @@ extern int shipAtk[4],carrierNum,usedGrid[4],availGrid[4],belonging[16];;
 extern BelongStructure dpRes[5][5][5][5];
 extern float op_coef,accu_coef;
 
+
 void cal_dataReady(stringstream &msg);
 bool cal_run();
 stringstream &cal_get_res();

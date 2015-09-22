@@ -1,0 +1,135 @@
+# depslib dependency file v1.0
+1437208482 source:c:\github\kc_aircraftoptimize\core\atkdp.cpp
+	"atkdp.h"
+
+1437208482 c:\github\kc_aircraftoptimize\core\atkdp.h
+	<cstring>
+	<vector>
+	"predef.h"
+	"belongingStructure.h"
+	"formular.h"
+	"formular_inline.h"
+
+1440322871 c:\github\kc_aircraftoptimize\core\predef.h
+
+1440322897 c:\github\kc_aircraftoptimize\core\belongingstructure.h
+	<algorithm>
+	<vector>
+	<iostream>
+	"predef.h"
+
+1437208482 c:\github\kc_aircraftoptimize\core\formular.h
+	"predef.h"
+	<cstdio>
+	<cmath>
+	<vector>
+	"grid.h"
+	"Plane.h"
+	"Carrier.h"
+
+1437208482 c:\github\kc_aircraftoptimize\core\grid.h
+	"predef.h"
+	<iostream>
+	<string>
+
+1442847096 c:\github\kc_aircraftoptimize\core\plane.h
+	<iostream>
+	<map>
+	"predef.h"
+	"enum_defs/enumer.h"
+	"enum_defs/enum_def.h"
+
+1442847709 c:\github\kc_aircraftoptimize\core\carrier.h
+	"predef.h"
+	"enum_defs/enumer.h"
+	<iostream>
+	<map>
+	"enum_defs/enumer.h"
+	"enum_defs/enum_def.h"
+
+1440328275 c:\github\kc_aircraftoptimize\core\enumer.h
+	<cstdlib>
+	<cstring>
+
+1442849368 c:\github\kc_aircraftoptimize\core\formular_inline.h
+	"formular.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\belongingstructure.cpp
+	"belongingStructure.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\calculator.cpp
+	"calculator.h"
+
+1440326170 c:\github\kc_aircraftoptimize\core\calculator.h
+	<iostream>
+	<sstream>
+	<vector>
+	<map>
+	<algorithm>
+	<cstring>
+	<stack>
+	<chrono>
+	"predef.h"
+	"Plane.h"
+	"Carrier.h"
+	"math.h"
+	"formular.h"
+	"atkdp.h"
+	"belongingStructure.h"
+
+1440328268 source:c:\github\kc_aircraftoptimize\core\carrier.cpp
+	"Carrier.h"
+
+1440328301 source:c:\github\kc_aircraftoptimize\core\core.cpp
+	"core.h"
+
+1437208482 c:\github\kc_aircraftoptimize\core\core.h
+	<iostream>
+	<vector>
+	<map>
+	<sstream>
+	"predef.h"
+	"Plane.h"
+	"Carrier.h"
+	"io.h"
+	"calculator.h"
+
+1440322927 c:\github\kc_aircraftoptimize\core\io.h
+	"predef.h"
+	<iostream>
+	<vector>
+	<fstream>
+	<map>
+	"Plane.h"
+	"Carrier.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\formular.cpp
+	"formular.h"
+	"formular_inline.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\global.cpp
+	<vector>
+	<map>
+	"Carrier.h"
+	"Plane.h"
+	"calculator.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\io.cpp
+	"io.h"
+
+1437208482 source:c:\github\kc_aircraftoptimize\core\plane.cpp
+	<iostream>
+	"Plane.h"
+
+1442826996 c:\github\kc_aircraftoptimize\core\enum_defs\carrier_cate.def
+
+1442829453 c:\github\kc_aircraftoptimize\core\enum_defs\plane_cate.def
+
+1442854416 c:\github\kc_aircraftoptimize\core\enum_defs\enumer.h
+	<map>
+	<string>
+	<iostream>
+	<stdexcept>
+
+1442855440 c:\github\kc_aircraftoptimize\core\enum_defs\enum_def.h
+

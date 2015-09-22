@@ -31,9 +31,8 @@ inline bool cal_cmp_grid(const Grid &a,const Grid &b){
     return a.gridSize>b.gridSize;
 }
 
-inline bool cal_cmp_plane_AS(const Plane &a,const Plane &b){
-    int ASa=a.airSupremacy,ASb=b.airSupremacy;
-    return ASa==ASb?a.accuracy>b.accuracy:ASa>ASb;
+inline bool cal_cmp_plane_AS(const Plane a,const Plane b){
+    return a.airSupre == b.airSupre ? a.accuracy > b.accuracy : a.airSupre > b.airSupremacy;
 }
 
 inline bool cal_cmp_plane_damage(const Plane &a,const Plane &b){
