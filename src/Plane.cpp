@@ -1,14 +1,29 @@
-#include <iostream>
-#include "Plane.h"
+#include "header/Plane.h"
 
-istream &operator>>(istream &is,Plane &item){
-    string tmpcate;
-    is>>item.name>>tmpcate>>item.airSupremacy>>item.torpedoAtk>>item.bombAtk>>item.accuracy;
-    item.category=PLANE_CATE_convert(tmpcate);
+#define ENUM_TYPE Plane_type
+#include "enum_defs/enumer.cpp"
+#undef ENUM_TYPE
+
+using namespace acc;
+
+std::istream &operator>>(std::istream &is, Plane &item){
+    is>>item.name
+      >>item.type
+      >>item.antiAir
+      >>item.torpeAtk
+      >>item.diveAtk
+      >>item.accuracy
+      >>item.evasion;
     return is;
 }
 
-ostream &operator<<(ostream &os,Plane &item){
-    os<<"plane name: "<<item.name<<"\ncategory: "<<PLANE_CATE_convert(item.category)<<"\nairSupremacy: "<<item.airSupremacy<<"\ntorpedoAttack: "<<item.torpedoAtk<<"\nbombAttack: "<<item.bombAtk<<"\naccuracy"<<item.accuracy;
+std::ostream &operator<<(std::ostream &os, const Plane &item){
+    os<<"n:"<<item.name<<' '
+      <<"t:"<<item.type<<' '
+      <<"A:"<<item.antiAir<<' '
+      <<"t:"<<item.torpeAtk<<' '
+      <<"d:"<<item.diveAtk<<' '
+      <<"a:"<<item.accuracy<<' '
+      <<"e:"<<item.evasion;
     return os;
 }

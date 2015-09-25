@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "src/header/predef.h"
+#include "def.h"
 #include "src/header/ACC.h"
 
 std::stringstream iss, oss;
@@ -13,11 +13,12 @@ int main(int argc,char *argv[])
     if(argc <= 1){
         std::cout<<"Usage: <query string>  | query"<<std::endl
                  <<"       -d              | debug"<<std::endl;
+        //return -1;
     }
     else if(strcmp(argv[1],"-d") == 0){
         std::ifstream fin("query.txt");
         if(!fin.is_open()){
-            std::cerr << "Could not open 'query.txt'" << std::endl;
+            std::cerr << L"Could not open 'query.txt'" << std::endl;
             return -1;
         }
         else
@@ -27,9 +28,9 @@ int main(int argc,char *argv[])
         iss << argv[1];
     }
 
-    ACC* acc = new ACC();
-    acc->query(iss,oss);
-    cout << oss.rdbuf();
+    acc::ACC* acc = new acc::ACC();
+    //acc->query(iss,oss);
+    //cout << oss.rdbuf();
 
     #ifdef WINDOWS
         system("pause");
@@ -46,6 +47,6 @@ int main(int argc,char *argv[])
 //           |-calculator      计算逻辑
 //           |     |-formulation       用到的公式
 //           |     |-grid              航母格子类
-//           |-Carrier     航母类
+//           |-CV     航母类
 //           |-Plane       舰载机类
 //           |-gobal       运算功能的全局变量

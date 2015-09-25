@@ -1,0 +1,18 @@
+{
+	AS:[int...],
+	plane:[[string(name),int(effi)]],
+	cv:[[string(name),int(fire),int(luck),int(evas)]...],
+	gridExtinctChance:[double...],
+	gridOpEfficiency: [[double...],//battle_1
+	                   [double...],//battle_2
+					   ...],
+	gridWorstBomberNum[[int...],//battle_1
+					   [int...],//battle_2
+					   ...],
+	gridWorstFighterNum[[int...],//battle_1
+	                    [int...],//battle_2
+					   ...]
+	opBonous[[int(,int],//battle_1
+	         [int,int],//battle_2
+			 ...]
+}
