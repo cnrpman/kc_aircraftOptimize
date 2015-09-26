@@ -10,8 +10,11 @@ CV 4 18 35 20 6 57
 HiryuKaini
 CV 4 18 36 22 3 64
 
-ShoukakuKai
-CV 4 24 24 24 12 39
+ShoukakuKaini
+CV 4 27 27 27 12 63
+
+ShoukakuKainiA
+CV 4 34 21 12 9 70
 
 ZuikakuKai
 CV 4 24 24 24 12 39
@@ -72,6 +75,9 @@ CV 4 18 27 18 10 39
 
 Hiryu
 CV 4 12 27 18 7 29
+
+ShoukakuKai
+CV 4 24 24 24 12 39
 
 Shoukaku
 CV 4 21 21 21 12 39

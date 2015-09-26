@@ -205,7 +205,8 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
                 sign[curlv]=0;
                 baoliSearch(curlv+1,remainF,remainA,gridSz);
             }
-            else baoliSearch(curlv+1,remainF,remainA-1,gridSz);
+            sign[curlv]=2;
+            baoliSearch(curlv+1,remainF,remainA-1,gridSz);
         }
         sign[curlv]=0;
     }

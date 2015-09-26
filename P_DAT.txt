@@ -55,6 +55,9 @@ Bomber 1 0 13 4
 Suisei-601AirGroup
 Bomber 0 0 11 1
 
+PrototypeNanzan
+Bomber 1 0 11 0
+
 Type97TorpedoBomber
 TorpedoAttacker 0 5 0 0
 
@@ -87,3 +90,9 @@ TorpedoAttacker 0 10 0 1
 
 Ryuusei-601AirGroup
 TorpedoAttacker 0 13 0 1
+
+Type97TorpedoBomber-MurataSquadron
+TorpedoAttacker 1 12 0 2
+
+TenzanModel12-MurataSquadron
+TorpedoAttacker 1 15 0 2
