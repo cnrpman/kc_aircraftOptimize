@@ -1,7 +1,7 @@
 #ifndef PREDEF_H_INCLUDED
 #define PREDEF_H_INCLUDED
 
-//#define DEBUG
+#define DEBUG
 //#define DEBUG2
 
 #define CBN_LIMIT 13

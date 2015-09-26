@@ -235,18 +235,17 @@ bool cal_run(){//if available result
     //cal max
     tAS=0;
     for(int i=0;i<gridSz&&i<planeSz;i++){
-        if(planeVec[i].airSupremacy!=0){
+        if(planeVec[i].category == PLANE_FIGHTER){
             maxFighterNum++;
-            tAS+=AS_PROF_BONOUS(planeVec[i])+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
             planeVecF.push_back(planeVec[i]);
         }
-
+        tAS+=AS_PROF_BONOUS(planeVec[i])+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
     }
     if(tAS<tarAirSupremacy){
         cout<<"ERROR:FighterPower unreachable.Currently reachable FighterPower: "<<tAS<<endl;
         return false;
     }
-    maxFighterNum=min(maxFighterNum,minFighterNum+10);
+    maxFighterNum=min(maxFighterNum,16);
 
     //for all possibility
     for(curFighterNum=minFighterNum;curFighterNum<=maxFighterNum;curFighterNum++){

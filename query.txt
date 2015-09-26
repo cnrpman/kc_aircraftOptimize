@@ -1,1 +1,1 @@
-300 0.2 0.01 0 0 10 3 TaihoKai 15 0 ShoukakuKai 15 0 RyujoKaini 14 0 7 Reppuu 10 Suisei-EgusaSquadron 1 RyuuseiKai 6 TenzanModel12-TomonagaSquadron 1 Suisei-601AirGroup 1 Reppuu-601AirGroup 2 Ryuusei-601AirGroup 2
+420 0.2 0.01 12 0 10 3 HiryuKaini 15 0 TaihoKai 15 0 JyunyoKaini 15 1 9 Reppuu-601AirGroup 2 Suisei-EgusaSquadron 1 Ryuusei-601AirGroup 2 Reppuu 10 RyuuseiKai 15 TenzanModel12-MurataSquadron 1 TenzanModel12-TomonagaSquadron 1 Type21ZeroFighter-Skilled 4 Suisei-601AirGroup 1
