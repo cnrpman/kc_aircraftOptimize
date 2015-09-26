@@ -1,0 +1,118 @@
+# depslib dependency file v1.0
+1443258184 source:c:\github\kc_aircraftoptimize\core\atkdp.cpp
+	"atkdp.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\atkdp.h
+	<cstring>
+	<vector>
+	"predef.h"
+	"belongingStructure.h"
+	"formular.h"
+	"formular_inline.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\predef.h
+
+1443258184 c:\github\kc_aircraftoptimize\core\belongingstructure.h
+	<algorithm>
+	<vector>
+	<iostream>
+	"predef.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\formular.h
+	"predef.h"
+	<cstdio>
+	<cmath>
+	<vector>
+	"grid.h"
+	"Plane.h"
+	"Carrier.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\grid.h
+	"predef.h"
+	<iostream>
+	<string>
+
+1443258184 c:\github\kc_aircraftoptimize\core\plane.h
+	<iostream>
+	<map>
+	"predef.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\carrier.h
+	"predef.h"
+	<iostream>
+	<map>
+
+1443258184 c:\github\kc_aircraftoptimize\core\formular_inline.h
+	"formular.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\belongingstructure.cpp
+	"belongingStructure.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\carrier.cpp
+	"Carrier.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\core.cpp
+	"core.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\core.h
+	<iostream>
+	<vector>
+	<map>
+	<sstream>
+	"predef.h"
+	"Plane.h"
+	"Carrier.h"
+	"io.h"
+	"calculator.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\io.h
+	"predef.h"
+	<iostream>
+	<vector>
+	<fstream>
+	<map>
+	"Plane.h"
+	"Carrier.h"
+
+1443258184 c:\github\kc_aircraftoptimize\core\calculator.h
+	<iostream>
+	<sstream>
+	<vector>
+	<map>
+	<algorithm>
+	<cstring>
+	<stack>
+	<chrono>
+	"predef.h"
+	"Plane.h"
+	"Carrier.h"
+	"math.h"
+	"formular.h"
+	"atkdp.h"
+	"belongingStructure.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\formular.cpp
+	"formular.h"
+	"formular_inline.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\global.cpp
+	<vector>
+	<map>
+	"Carrier.h"
+	"Plane.h"
+	"calculator.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\io.cpp
+	"io.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\core\plane.cpp
+	<iostream>
+	"Plane.h"
+
+1443258184 source:c:\github\kc_aircraftoptimize\main.cpp
+	"core/predef.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	"core/core.h"
+
