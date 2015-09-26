@@ -67,7 +67,7 @@ inline int calASofBomber(int gridS){
     int res=0;
     for(int i=0;i<curBomberNum;i++){
         if(planeVecA[i].airSupremacy)
-            res+=formulaFighter(theCarrier[curAssign[i]].gridSize[curAssignGrid[i]],planeVecA[i].airSupremacy);
+            res+=(planeVecA[i].category == PLANE_FIGHTER?25:3)+formulaFighter(theCarrier[curAssign[i]].gridSize[curAssignGrid[i]],planeVecA[i].airSupremacy);
     }
 //    cout<<"returning"<<endl;
     return res;
