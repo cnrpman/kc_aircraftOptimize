@@ -1,5 +1,7 @@
 #include "calculator.h"
 
+#define AS_PROF_BONOUS(a) (a.category == PLANE_FIGHTER?25:3)
+
 using namespace std;
 
 //interior vars
@@ -66,8 +68,9 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
 inline int calASofBomber(int gridS){
     int res=0;
     for(int i=0;i<curBomberNum;i++){
+        res+=AS_PROF_BONOUS(planeVecA[i]);
         if(planeVecA[i].airSupremacy)
-            res+=(planeVecA[i].category == PLANE_FIGHTER?25:3)+formulaFighter(theCarrier[curAssign[i]].gridSize[curAssignGrid[i]],planeVecA[i].airSupremacy);
+            res+=formulaFighter(theCarrier[curAssign[i]].gridSize[curAssignGrid[i]],planeVecA[i].airSupremacy);
     }
 //    cout<<"returning"<<endl;
     return res;
@@ -79,7 +82,7 @@ inline int calAS(int gridS){
     for(int i=0;i<gridS;i++){
         if(iterFighter>=curFighterNum)break;
         if(sign[i]==1){//notset or fighter
-            res+=(planeVecF[iterFighter].category == PLANE_FIGHTER?25:3) + formulaFighter(gridVec[i].gridSize,planeVecF[iterFighter].airSupremacy);
+            res+=AS_PROF_BONOUS(planeVecF[iterFighter]) + formulaFighter(gridVec[i].gridSize,planeVecF[iterFighter].airSupremacy);
             iterFighter++;
         }
     }
@@ -92,7 +95,7 @@ inline int calASpredict(int gridS){
     for(int i=0;i<gridS;i++){
         if(iterFighter>=curFighterNum)break;
         if(sign[i]==1||sign[i]==0){//notset or fighter
-            res+=(planeVecF[iterFighter].category == PLANE_FIGHTER?25:3)+formulaFighter(gridVec[i].gridSize,planeVecF[iterFighter].airSupremacy);
+            res+=AS_PROF_BONOUS(planeVecF[iterFighter])+formulaFighter(gridVec[i].gridSize,planeVecF[iterFighter].airSupremacy);
             iterFighter++;
         }
     }
@@ -224,7 +227,7 @@ bool cal_run(){//if available result
     float tAS=PRESET_AS_OF_BOMBER;//AirSupermacy Val
     if(tAS>=tarAirSupremacy)minFighterNum=0;
     for(int i=0;i<gridSz&&i<planeSz;i++){
-        tAS+=(planeVec[i].category == PLANE_FIGHTER?25:3)+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
+        tAS+=AS_PROF_BONOUS(planeVec[i])+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
         if(tAS>=tarAirSupremacy&&minFighterNum==-1){
             minFighterNum=i+1;
         }
@@ -234,7 +237,7 @@ bool cal_run(){//if available result
     for(int i=0;i<gridSz&&i<planeSz;i++){
         if(planeVec[i].airSupremacy!=0){
             maxFighterNum++;
-            tAS+=(planeVec[i].category == PLANE_FIGHTER?25:3)+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
+            tAS+=AS_PROF_BONOUS(planeVec[i])+formulaFighter(gridVec[i].gridSize,planeVec[i].airSupremacy);
             planeVecF.push_back(planeVec[i]);
         }
 
