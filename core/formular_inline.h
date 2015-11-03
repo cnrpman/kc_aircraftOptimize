@@ -27,8 +27,12 @@ inline float armorSimu(int damage){
 
 //=====
 
-inline bool cal_cmp_grid(const Grid &a,const Grid &b){
-    return a.gridSize>b.gridSize;
+inline bool cal_cmp_grid(const Grid &a, const Grid &b){
+    return  a.gridSize > b.gridSize;
+}
+
+inline bool cal_cmp_grid_fsb(const Grid &a, const Grid &b){
+    return  a.gridSizeFsb > b.gridSizeFsb;
 }
 
 inline bool cal_cmp_plane_AS(const Plane &a,const Plane &b){

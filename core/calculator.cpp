@@ -41,7 +41,7 @@ void cal_dataReady(stringstream &st){//从query载入需要数据
         for(int j=tmpCarrierGridNum-1;j>=0;j--){
             if(tmpAvailBit&bit){//bit arithmatic judge if the grid available
                 int &tmpGridSize=carriers[tmpCarrierID].gridSize[j];
-                gridVec.push_back(Grid(i,j,tmpGridSize,carriers[tmpCarrierID].atk,checkIfFighterOnly(tmpGridSize,leastAttackerSz,ifFighterOnly)));
+                gridVec.push_back(Grid(i,j,tmpGridSize, tmpGridSize*(j==0?FIRST_SLOT_BUFF:1),carriers[tmpCarrierID].atk,checkIfFighterOnly(tmpGridSize,leastAttackerSz,ifFighterOnly)));
                 if(!gridVec.back().isFighterOnly){
                     availGrid[i]++;
                     attackerAbleGridNum++;
@@ -112,7 +112,7 @@ inline float calOPAtk(int gridS){
         if(sign[i]==2){
             for(int j=0;j<curBomberNum;j++){
                 if(gridVec[i].carrierPos==curAssign[j]&&(!pickuped[j])){
-                    res+=formulaDamageOP(gridVec[i].gridSize,planeVecA[j]);
+                    res+=formulaDamageOP(gridVec[i].gridSizeFsb,planeVecA[j]);
                     pickuped[j]=1;
                     curAssignGrid[j]=gridVec[i].gridPos;
                     break;
@@ -120,7 +120,7 @@ inline float calOPAtk(int gridS){
             }
         }
         else if(sign[i]==1){
-            res+=formulaDamageOP(gridVec[i].gridSize,planeVecF[f++]);
+            res+=formulaDamageOP(gridVec[i].gridSizeFsb,planeVecF[f++]);
         }
     }
     return res;
@@ -321,7 +321,7 @@ stringstream &cal_get_res(){
     memset(shipHit,0,sizeof(shipHit));
     for(int i=0;i<resBomberNum;i++){
         answer_c[resAssign[i]][resAssignGrid[i]]=ResPlaneVecA[i].name;
-        answer_n[resAssign[i]][resAssignGrid[i]] = formula_damageOP_str(theCarrier[resAssign[i]].gridSize[resAssignGrid[i]],ResPlaneVecA[i]);
+        answer_n[resAssign[i]][resAssignGrid[i]] = formula_damageOP_str(theCarrier[resAssign[i]].gridSize[resAssignGrid[i]]*(resAssignGrid[i]==0?FIRST_SLOT_BUFF:1),ResPlaneVecA[i]);
 
         shipAtk[resAssign[i]] += formulaDamage(ResPlaneVecA[i]);
         shipHit[resAssign[i]] += ResPlaneVecA[i].accuracy;

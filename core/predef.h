@@ -9,5 +9,6 @@
 #define EPS 1e-2
 #define LOGLIST_LEN 1000
 #define TLE 15
+#define FIRST_SLOT_BUFF 1.19008
 
 #endif // PREDEF_H_INCLUDED
