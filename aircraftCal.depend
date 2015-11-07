@@ -10,7 +10,7 @@
 	"formular.h"
 	"formular_inline.h"
 
-1446528586 c:\github\kc_aircraftoptimize\core\predef.h
+1446928148 c:\github\kc_aircraftoptimize\core\predef.h
 
 1446528008 c:\github\kc_aircraftoptimize\core\belongingstructure.h
 	<algorithm>
@@ -116,6 +116,6 @@
 	<sstream>
 	"core/core.h"
 
-1443276705 source:c:\github\kc_aircraftoptimize\core\calculator.cpp
+1446928005 source:c:\github\kc_aircraftoptimize\core\calculator.cpp
 	"calculator.h"
 

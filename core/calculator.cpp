@@ -99,6 +99,7 @@ inline int calASpredict(int gridS){
             iterFighter++;
         }
     }
+    res += curBomberNum * 3;// bomber bonus
     return res;
 }
 
@@ -205,8 +206,9 @@ void baoliSearch(int curlv,int remainF,int remainA,int gridSz){
                 sign[curlv]=0;
                 baoliSearch(curlv+1,remainF,remainA,gridSz);
             }
-            sign[curlv]=2;
-            baoliSearch(curlv+1,remainF,remainA-1,gridSz);
+            else{
+                baoliSearch(curlv+1,remainF,remainA-1,gridSz);
+            }
         }
         sign[curlv]=0;
     }
@@ -247,11 +249,10 @@ bool cal_run(){//if available result
         return false;
     }
     maxFighterNum=min(maxFighterNum,16);
+    minFighterNum = min(minFighterNum, maxFighterNum);
 
     //for all possibility
     for(curFighterNum=minFighterNum;curFighterNum<=maxFighterNum;curFighterNum++){
-        for(int i=0;i<curFighterNum;i++)
-            if(planeVec[i].category!=PLANE_FIGHTER) break; //not enough
         //choose bombers.
         planeVecA.clear();
         for(int i=0;i<planeSz;i++){

@@ -1,1 +1,1 @@
-200 0.2 0.01 0 0 10 3 TaihoKai 15 0 ZuikakuKai 15 0 KagaKai 15 0 6 Ryuusei-601AirGroup 2 RyuuseiKai 10 TenzanModel12-MurataSquadron 1 TenzanModel12-TomonagaSquadron 1 Type21ZeroFighter-Skilled 10 Suisei 1
+250 0.2 0.01 0 0 10 4 TaihoKai 15 0 ZuikakuKai 15 0 ShoukakuKainiA 15 0 ShoukakuKaini 15 0 8 Type62ZeroFighter-bomber 1 Suisei-EgusaSquadron 1 Reppuu-601AirGroup 2 Reppuu 10 Ryuusei-601AirGroup 2 TenzanModel12-MurataSquadron 2 TenzanModel12-TomonagaSquadron 1 RyuuseiKai 10
