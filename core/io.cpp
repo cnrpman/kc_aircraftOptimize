@@ -11,9 +11,11 @@ void read_planes(int &planes_tot,vector<Plane> &planes,map<string,int> &planes_m
     Plane tplane;
     while(in.good()){
         in>>tplane;
-        planes.push_back(tplane);
-        planes_m[tplane.name]=planes_tot;
-        planes_tot++;
+        if(planes_m.find(tplane.name) == planes_m.end()){
+            planes.push_back(tplane);
+            planes_m[tplane.name]=planes_tot;
+            planes_tot++;
+        }
     }
     in.close();
 }
