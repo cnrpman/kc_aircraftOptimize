@@ -28,6 +28,27 @@ Fighter 9 0 0 1
 Reppuu-601AirGroup
 Fighter 11 0 0 1
 
+Type52ZeroFighter-Skilled
+Fighter 9 0 0 1
+
+ZeroFighterType52C-wIwaiFlight
+Fighter 10 0 0 1
+
+ZeroFighterType21-wIwamotoFlight
+Fighter 9 0 0 1
+
+ZeroFighterType52A-wIwamotoFlight
+Fighter 11 0 0 1
+
+ZeroFighterType53-IwamotoSquadron
+Fighter 12 0 0 2
+
+Bf109TKai
+Fighter 8 0 0 2
+
+Fw190TKai
+Fighter 10 0 0 2
+
 Type99DiveBomber
 Bomber 0 0 5 0
 
@@ -57,6 +78,9 @@ Bomber 0 0 11 1
 
 PrototypeNanzan
 Bomber 1 0 11 0
+
+Type62ZeroFighter-bomberIwaiSquadron
+Bomber 7 0 4 1
 
 Type97TorpedoBomber
 TorpedoAttacker 0 5 0 0
@@ -96,3 +120,4 @@ TorpedoAttacker 1 12 0 2
 
 TenzanModel12-MurataSquadron
 TorpedoAttacker 1 15 0 2
+

@@ -16,8 +16,11 @@ CV 4 27 27 27 12 63
 ShoukakuKainiA
 CV 4 34 21 12 9 70
 
-ZuikakuKai
-CV 4 24 24 24 12 39
+ZuikakuKaini
+CV 4 28 26 26 13 56
+
+ZuikakuKainiA
+CV 4 34 24 12 6 65
 
 TaihoKai
 CV 4 30 24 24 8 59
@@ -30,6 +33,15 @@ CV 4 18 21 27 3 45
 
 KatsuragiKai
 CV 4 18 21 27 3 45
+
+GrafZeppelinKai
+CV 4 30 13 10 3 50
+
+AquilaKai
+CV 4 15 26 15 10 24
+
+SaratogaKai
+CV 4 36 18 18 18 53
 
 HiyoKai
 CVL 4 18 18 18 12 29
@@ -82,6 +94,9 @@ CV 4 24 24 24 12 39
 Shoukaku
 CV 4 21 21 21 12 39
 
+ZuikakuKai
+CV 4 24 24 24 12 39
+
 Zuikaku
 CV 4 21 21 21 12 39
 
@@ -96,6 +111,15 @@ CV 4 18 24 3 6 25
 
 Katsuragi
 CV 4 18 24 3 6 25
+
+GrafZeppelin
+CV 3 20 13 10 0 40
+
+Aquila
+CV 3 10 26 15 0 14
+
+Saratoga
+CV 4 27 19 19 15 45
 
 Hiyo
 CVL 4 12 18 18 10 19

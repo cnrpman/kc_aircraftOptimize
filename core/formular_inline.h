@@ -3,6 +3,8 @@
 
 #include "formular.h"
 
+#define FIRE_CAP 180
+
 inline float formulaSortDamage(const Plane &item){
     return formulaDamage(item)/10 + op_coef*formulaDamageOP(24,item);
 }
@@ -12,9 +14,9 @@ inline bool sig(float a){
 }
 
 inline int damageRegular(int atk){
-    if(atk>150){
-        atk-=150;
-        atk=floor(sqrt(atk))+150;
+    if(atk > FIRE_CAP){
+        atk -= FIRE_CAP;
+        atk = floor(sqrt(atk))+ FIRE_CAP;
     }
     return atk;
 }
