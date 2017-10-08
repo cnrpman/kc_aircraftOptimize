@@ -1,21 +1,19 @@
 kc_aircraftOptimize
-===================
-[![Build Status](https://travis-ci.org/cnrpman/kc_aircraftOptimize.svg?branch=master)](https://travis-ci.org/cnrpman/kc_aircraftOptimize)  
-这是一个根据空母和舰载机计算出满足指定制空值的火力优化配置的工具  
-v0.5x为目前使用的版本  
-v0.1为只考虑开幕伤害的旧版本(以下内容对该版本无效)  
+===================  
+这是一个为网页游戏KantaiCollection设计的计算工具.  
+可以根据给定的空母和舰载机配置, 计算出满足指定制空值的伤害优化方案.  
 
-##Install
-可以使用code:blocks打开目录下的.cbp文件直接编译即可,需要打开c++11编译选项.(Windows/Linux均可)  
-或在目录下执行`make -f aircraftCal.cbp.mak`进行编译(Linux)  
+## Install ##  
+可以使用code:blocks打开目录下的.cbp文件直接编译, 需要打开c++11选项
+或通过Cmake进行编译
 
-##Usage
+## Usage ##  
 Query Format:  
 `制空值 开幕系数 命中系数 最小限制 敌方装甲 空母数 冗余系数 (空母 装备掩码 是否罚站)x空母数 飞机数 (飞机 数量)x飞机数`  
 
 具体查询Sample可见每次查询后返回的show query或目录下的query.txt
 
-##Directory
+## Directory ##
 
         ├─main  界面
         │
@@ -36,10 +34,10 @@ Query Format:
            └─gobal
 
 core/predef.h下的define:  
-DEBUG -- 将输入从query.txt读入查询而不是shell  
+DEBUG --从query.txt读入查询, 而不是arg  
 
-##Algorithm
+## Method ##
 Searching Strategy:  
-I.先做一个贪心抽取出要使用的飞机(留出余量，多次尝试不同的战斗机数量以匹配爆战/游泳队等非战斗机的制空)  
-II.然后先根据组合搜出所有的空母对舰攻/舰爆的选择一定的飞机数时炮击伤害较优的一些解(带剪枝，也是留有一定的余量)根据每个空母拥有的舰攻/舰爆数做状态记忆(记忆火力,其中火力要乘上命中的加成)  
-III.最后根据某个格子是选取舰战亦或是舰攻舰爆做01搜索+根据制空稍微剪一下，搜索出口根据II记录的解加上贪心排出的飞机摆放顺序做伤害的检查  
+1. 做一个Greedy抽取出要使用的飞机(留出余量，多次尝试不同的舰战数量)
+2. 搜出飞机数一定时, 空母对舰攻/舰爆可以最大化炮击伤害较优的Selection(带Pruning), 记录每个空母拥有的舰攻/舰爆及火力值
+3. 根据slot放置舰战或是舰攻舰爆, 做01搜索。 利用制空值做Prune, 搜索出口根据2.中记录的解加上贪心排出的飞机摆放顺序做伤害检查
